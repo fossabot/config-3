@@ -1,6 +1,9 @@
 {
   "name": "@scaleleap/config",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Extendable configuration base class for 12 Factor application.",
   "main": "dst/index.js",
   "types": "dst/index.d.ts",
