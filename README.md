@@ -1,4 +1,4 @@
-# `@scaleleap/config`
+# @scaleleap/config
 
 > Extendable configuration base class for [12 Factor](https://12factor.net/config) application.
 
