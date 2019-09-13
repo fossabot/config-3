@@ -1,6 +1,6 @@
 {
   "name": "@scaleleap/config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publishConfig": {
     "access": "public"
   },
@@ -26,15 +26,18 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/dotenv": "6.1.1",
     "@types/jest": "24.0.17",
     "@types/node": "12.7.2",
     "jest": "24.9.0",
     "ts-jest": "24.0.2",
     "tsconfigs": "3.0.0",
+    "tslib": "1.10.0",
     "typescript": "3.5.3"
   },
   "dependencies": {
     "browser-or-node": "1.2.1",
+    "dotenv": "8.1.0",
     "env-var": "5.0.0"
   }
 }

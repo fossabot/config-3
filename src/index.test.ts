@@ -1,4 +1,5 @@
 import { BaseConfig } from './index'
+import { join } from 'path'
 
 class Config extends BaseConfig {
   public readonly prop = this.get('TEST').asString()
@@ -27,5 +28,14 @@ describe(BaseConfig.name, () => {
       expect(() => { myConfig.prop = 1 }).toThrowError(/Cannot assign to read only property/)
       done()
     }, 50)
+  })
+
+  it('should read defaults from .env file', () => {
+    process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+
+    const myConfig = new Config()
+    expect(myConfig.prop).toBe('foo')
+
+    delete process.env.DOTENV_CONFIG_PATH
   });
 })

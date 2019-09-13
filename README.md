@@ -43,6 +43,16 @@ This is useful, when you'd like to override the values for testing:
 const config = new Config({ NODE_ENV: '...' })
 ```
 
+This module will automatically read `.env` file contents from `$PWD/.env`.
+
+You can influence the discovery path of `.env` file via `DOTENV_CONFIG_PATH` environment variable.
+
+E.g.
+
+```sh
+DOTENV_CONFIG_PATH=.env.prod node foo.js
+```
+
 ## Guidelines
 
 * Property names should match the environment variable name, including case. E.g. `NODE_ENV`.
