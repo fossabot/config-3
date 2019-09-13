@@ -10,8 +10,6 @@ describe(BaseConfig.name, () => {
   })
 
   it('should be extendable', () => {
-
-
     const myConfig = new Config()
     expect(myConfig).toHaveProperty('prop')
   })
