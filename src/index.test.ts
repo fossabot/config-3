@@ -31,9 +31,10 @@ describe(BaseConfig.name, () => {
   it('should be frozen on the next interval', (done) => {
     const myConfig = new Config()
 
+    const mutate = () => Object.assign(myConfig, { PORT: 1 })
+
     setTimeout(() => {
-      // @ts-ignore
-      expect(() => { myConfig.PORT = 1 }).toThrowError(/Cannot assign to read only property/)
+      expect(mutate).toThrowError(/Cannot assign to read only property/)
       done()
     }, 50)
   })
