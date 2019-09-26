@@ -21,6 +21,7 @@ describe(BaseConfig.name, () => {
   it('should be extendable', () => {
     const myConfig = new Config()
     expect(myConfig).toHaveProperty('PORT')
+    expect(myConfig.PORT).toBe(3000)
   })
 
   it('should allow process.env override via constructor', () => {

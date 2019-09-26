@@ -14,9 +14,11 @@ function envDefaults(): NodeJS.ProcessEnv {
 
   if (error) {
     // ignore "ENOENT: no such file or directory" error, if `.env` file does not exist
-    if (!error.message.includes('ENOENT')) {
+    if (!error.message.startsWith('ENOENT')) {
       throw error
     }
+
+    return process.env
   }
 
   if (parsed) {
