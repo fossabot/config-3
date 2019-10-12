@@ -1,14 +1,10 @@
 {
-  "extends": "tsconfigs/node",
+  "extends": "tsconfigs/nodejs-module",
   "compilerOptions": {
     "pretty": true,
-    "incremental": true,
-    "strict": true,
     "outDir": "./dst",
     "rootDir": "./src",
     "baseUrl": "./src",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "types": [
       "@types/jest"
     ]
