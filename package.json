@@ -33,7 +33,7 @@
     "ts-jest": "24.1.0",
     "tsconfigs": "4.0.1",
     "tslib": "1.10.0",
-    "typescript": "3.5.3"
+    "typescript": "3.6.4"
   },
   "dependencies": {
     "browser-or-node": "1.2.1",
