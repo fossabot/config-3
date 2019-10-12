@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfigs/nodejs-module",
+  "extends": "tsconfigs/agnostic-module",
   "compilerOptions": {
     "pretty": true,
     "outDir": "./dst",
