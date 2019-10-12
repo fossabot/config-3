@@ -37,5 +37,5 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
-  protected readonly get: From['get'] = from(this.env).get
+  protected readonly get: From['get'] = from(this.env).get.bind(this)
 }
