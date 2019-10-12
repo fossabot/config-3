@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/ScaleLeap/config/compare/v1.2.1...v1.2.2) (2019-10-12)
+
+
+### Bug Fixes
+
+* uses agnostic tsconfig ([5864aad](https://github.com/ScaleLeap/config/commit/5864aad0c88ecd534cf2ba295547892190ddd71a))
+
 ## [1.2.1](https://github.com/ScaleLeap/config/compare/v1.2.0...v1.2.1) (2019-10-12)
 
 
