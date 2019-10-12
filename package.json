@@ -26,6 +26,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@jedmao/semantic-release-npm-github-config": "1.0.7",
     "@types/dotenv": "6.1.1",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.12",
@@ -39,5 +40,9 @@
     "browser-or-node": "1.2.1",
     "dotenv": "8.1.0",
     "env-var": "5.1.0"
+  },
+  "release": {
+    "extends": "@jedmao/semantic-release-npm-github-config",
+    "branch": "master"
   }
 }
