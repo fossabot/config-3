@@ -1,9 +1,26 @@
-import { BaseConfig } from './index'
+import { BaseConfig, envDefaults } from './index'
 import { join } from 'path'
 
 class Config extends BaseConfig {
   public readonly PORT = this.get('PORT').asIntPositive()
 }
+
+describe(envDefaults.name, () => {
+  beforeEach(() => {
+    process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+    process.env.FOO = 'bar'
+  })
+
+  afterEach(() => {
+    delete process.env.FOO
+    delete process.env.DOTENV_CONFIG_PATH
+  })
+
+  it('should retain original process.env values', () => {
+    const vars = envDefaults()
+    expect(vars.FOO).toBe('bar')
+  })
+})
 
 describe(BaseConfig.name, () => {
   beforeEach(() => {
@@ -39,7 +56,9 @@ describe(BaseConfig.name, () => {
       done()
     }, 50)
   })
+})
 
+describe(BaseConfig.name, () => {
   it('should read defaults from .env file', () => {
     process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
 

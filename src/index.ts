@@ -4,28 +4,20 @@ import { config } from 'dotenv'
 
 type From = ReturnType<typeof from>
 
-function envDefaults(): NodeJS.ProcessEnv {
+export function envDefaults(): NodeJS.ProcessEnv {
   // browser environments
   if (!isNode) {
     return {}
   }
 
-  const { parsed, error } = config({ path: process.env.DOTENV_CONFIG_PATH })
+  const { error } = config({ path: process.env.DOTENV_CONFIG_PATH })
 
-  if (error) {
-    // ignore "ENOENT: no such file or directory" error, if `.env` file does not exist
-    if (!error.message.startsWith('ENOENT')) {
-      throw error
-    }
-
-    return process.env
+  // ignore "ENOENT: no such file or directory" error, if `.env` file does not exist
+  if (error && !error.message.startsWith('ENOENT')) {
+    throw error
   }
 
-  if (parsed) {
-    return parsed
-  }
-
-  return {}
+  return process.env
 }
 
 export class BaseConfig {
