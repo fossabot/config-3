@@ -1,31 +1,27 @@
 {
   "name": "@scaleleap/config",
-  "version": "1.2.3",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Extendable configuration base class for 12 Factor application.",
+  "license": "MIT",
+  "author": "Roman Filippov <roman@scaleleap.com> (https://www.scaleleap.com/)",
+  "version": "1.2.2",
   "main": "dst/index.js",
-  "types": "dst/index.d.ts",
   "files": [
     "/dst"
   ],
   "scripts": {
     "build": "tsc",
+    "lint": "eslint --ext .js,.ts .",
     "test": "jest"
   },
-  "keywords": [
-    "scaleleap",
-    "config"
-  ],
-  "author": {
-    "email": "roman@scaleleap.com",
-    "name": "Roman Filippov",
-    "url": "https://www.scaleleap.com/"
+  "types": "dst/index.d.ts",
+  "dependencies": {
+    "browser-or-node": "1.2.1",
+    "dotenv": "8.1.0",
+    "env-var": "5.1.0"
   },
-  "license": "MIT",
   "devDependencies": {
     "@jedmao/semantic-release-npm-github-config": "1.0.7",
+    "@scaleleap/utils": "1.0.0",
     "@types/dotenv": "6.1.1",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.12",
@@ -35,10 +31,12 @@
     "tslib": "1.10.0",
     "typescript": "3.6.4"
   },
-  "dependencies": {
-    "browser-or-node": "1.2.1",
-    "dotenv": "8.1.0",
-    "env-var": "5.1.0"
+  "keywords": [
+    "config",
+    "scaleleap"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "release": {
     "extends": "@jedmao/semantic-release-npm-github-config",

@@ -1,10 +1,10 @@
-import { from } from 'env-var'
 import { isNode } from 'browser-or-node'
 import { config } from 'dotenv'
+import { from } from 'env-var'
 
 type From = ReturnType<typeof from>
 
-export function envDefaults(): NodeJS.ProcessEnv {
+export function environmentDefaults(): NodeJS.ProcessEnv {
   // browser environments
   if (!isNode) {
     return {}
@@ -21,7 +21,7 @@ export function envDefaults(): NodeJS.ProcessEnv {
 }
 
 export class BaseConfig {
-  public constructor(private readonly env: NodeJS.ProcessEnv = envDefaults()) {
+  public constructor(private readonly environment = environmentDefaults()) {
     // We can freeze the object only on the next tick, because classes extending
     // this base class need to be able to modify the object during construction.
     // This isn't the best solution, as it will fail to catch prop mutations during the initial
@@ -29,5 +29,5 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
-  protected readonly get: From['get'] = from(this.env).get.bind(this)
+  protected readonly get: From['get'] = from(this.environment).get.bind(this)
 }
