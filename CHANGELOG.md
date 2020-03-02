@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ScaleLeap/config/compare/v1.3.0...v1.3.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* missing NODE_ENV docs ([092d215](https://github.com/ScaleLeap/config/commit/092d215111c06400167bbeed6977b3e7bca13433))
+
 # [1.3.0](https://github.com/ScaleLeap/config/compare/v1.2.3...v1.3.0) (2020-03-02)
 
 
