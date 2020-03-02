@@ -1,12 +1,13 @@
 import { join } from 'path'
 
+// eslint-disable-next-line import/extensions
 import { BaseConfig, environmentDefaults } from '.'
 
 class Config extends BaseConfig {
   public readonly PORT = this.get('PORT').asIntPositive()
 }
 
-describe(environmentDefaults.name, () => {
+describe(`${environmentDefaults.name}`, () => {
   beforeEach(() => {
     process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
     process.env.FOO = 'bar'
@@ -26,7 +27,7 @@ describe(environmentDefaults.name, () => {
   })
 })
 
-describe(BaseConfig.name, () => {
+describe(`${BaseConfig.name}`, () => {
   beforeEach(() => {
     process.env.PORT = '3000'
   })
@@ -98,7 +99,7 @@ describe(BaseConfig.name, () => {
   })
 })
 
-describe(BaseConfig.name, () => {
+describe(`${BaseConfig.name}`, () => {
   it('should read defaults from .env file', () => {
     expect.hasAssertions()
 
