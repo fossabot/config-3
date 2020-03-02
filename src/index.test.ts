@@ -74,6 +74,28 @@ describe(BaseConfig.name, () => {
 
     await promise
   })
+
+  it('should have NODE_ENV set', () => {
+    expect.hasAssertions()
+
+    const myConfig = new Config()
+
+    expect(myConfig.NODE_ENV).toBe('test')
+  })
+
+  it('should have NODE_ENV getters', () => {
+    expect.hasAssertions()
+
+    const myConfig = new Config()
+
+    expect(myConfig.isDevelopment).not.toBeUndefined()
+    expect(myConfig.isTest).not.toBeUndefined()
+    expect(myConfig.isProduction).not.toBeUndefined()
+
+    expect(myConfig.isDevelopment).toBe(false)
+    expect(myConfig.isTest).toBe(true)
+    expect(myConfig.isProduction).toBe(false)
+  })
 })
 
 describe(BaseConfig.name, () => {

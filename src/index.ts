@@ -2,6 +2,12 @@ import { isNode } from 'browser-or-node'
 import { config } from 'dotenv'
 import { from } from 'env-var'
 
+const NODE_ENV_DEVELOPMENT = 'development'
+const NODE_ENV_TEST = 'test'
+const NODE_ENV_PRODUCTION = 'production'
+const NODE_ENVS = [NODE_ENV_DEVELOPMENT, NODE_ENV_TEST, NODE_ENV_PRODUCTION] as const
+
+type NodeEnvs = typeof NODE_ENVS[-1]
 type From = ReturnType<typeof from>
 
 export function environmentDefaults(): NodeJS.ProcessEnv {
@@ -30,4 +36,23 @@ export class BaseConfig {
   }
 
   protected readonly get: From['get'] = from(this.environment).get.bind(this)
+
+  /**
+   * Determines running environment via `NODE_ENV` variable.
+   */
+  public readonly NODE_ENV = this.get('NODE_ENV', NODE_ENV_DEVELOPMENT).asEnum([
+    ...NODE_ENVS,
+  ]) as NodeEnvs
+
+  public get isDevelopment(): boolean {
+    return this.NODE_ENV === NODE_ENV_DEVELOPMENT
+  }
+
+  public get isTest(): boolean {
+    return this.NODE_ENV === NODE_ENV_TEST
+  }
+
+  public get isProduction(): boolean {
+    return this.NODE_ENV === NODE_ENV_PRODUCTION
+  }
 }
