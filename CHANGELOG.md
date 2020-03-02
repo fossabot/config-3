@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/ScaleLeap/config/compare/v1.3.1...v1.3.2) (2020-03-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency env-var to v5.2.0 ([7918218](https://github.com/ScaleLeap/config/commit/79182188d1555af2ac9f1099449fbbfde6855b6e))
+
 ## [1.3.1](https://github.com/ScaleLeap/config/compare/v1.3.0...v1.3.1) (2020-03-02)
 
 
