@@ -53,6 +53,42 @@ E.g.
 DOTENV_CONFIG_PATH=.env.prod node foo.js
 ```
 
+## Built-in Variables
+
+There are some universal variables that are included into the config.
+
+For now, there is just one.
+
+### `NODE_ENV`
+
+Valid values are:
+
+* `development`
+* `test`
+* `production`
+
+Example:
+
+```sh
+NODE_ENV=production node foo.js
+```
+
+Also comes with convenience boolean assertion getters:
+
+* `isDevelopment`
+* `isTest`
+* `isProduction`
+
+Example:
+
+```ts
+const config = new Config()
+
+if (config.isDevelopment) {
+  // do something destructive
+}
+```
+
 ## Guidelines
 
 * Property names should match the environment variable name, including case. E.g. `NODE_ENV`.
