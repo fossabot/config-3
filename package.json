@@ -27,7 +27,7 @@
     "@types/node": "12.11.1",
     "jest": "24.9.0",
     "ts-jest": "24.1.0",
-    "tsconfigs": "4.0.1",
+    "tsconfigs": "4.0.2",
     "tslib": "1.10.0",
     "typescript": "3.6.4"
   },
