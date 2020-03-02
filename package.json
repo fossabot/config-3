@@ -17,7 +17,7 @@
   "dependencies": {
     "browser-or-node": "1.2.1",
     "dotenv": "8.2.0",
-    "env-var": "5.1.0"
+    "env-var": "5.2.0"
   },
   "devDependencies": {
     "@jedmao/semantic-release-npm-github-config": "1.0.9",
