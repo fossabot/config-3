@@ -8,7 +8,6 @@ const NODE_ENV_PRODUCTION = 'production'
 const NODE_ENVS = [NODE_ENV_DEVELOPMENT, NODE_ENV_TEST, NODE_ENV_PRODUCTION] as const
 
 type NodeEnvs = typeof NODE_ENVS[-1]
-type From = ReturnType<typeof from>
 
 export function environmentDefaults(): NodeJS.ProcessEnv {
   // browser environments
@@ -37,12 +36,21 @@ export class BaseConfig {
 
   private readonly from = from(this.environment)
 
+  /**
+   * Environment variable prefix that is applied to all of the variables in this class.
+   *
+   * E.g. setting `prefix` to `FOO_` and then `get('BAR')` will look for variable `FOO_BAR`.
+   */
+  protected prefix = ''
+
   protected get(varName: string, defaultValue?: string) {
+    const prefixedVarName = [this.prefix.toUpperCase(), varName].join('')
+
     if (defaultValue) {
-      return this.from.get(varName, defaultValue)
+      return this.from.get(prefixedVarName, defaultValue)
     }
 
-    return this.from.get(varName)
+    return this.from.get(prefixedVarName)
   }
 
   /**

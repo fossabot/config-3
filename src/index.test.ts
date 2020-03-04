@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import { join } from 'path'
 
 // eslint-disable-next-line import/extensions
@@ -110,5 +111,29 @@ describe(`${BaseConfig.name}`, () => {
     expect(myConfig.PORT).toBe(2000)
 
     delete process.env.DOTENV_CONFIG_PATH
+  })
+})
+
+describe(`${BaseConfig.name}`, () => {
+  class PrefixedConfig extends BaseConfig {
+    protected readonly prefix = 'FOO_'
+
+    public readonly BAR = this.get('BAR').asString()
+  }
+
+  it('should support custom prefixes', () => {
+    expect.hasAssertions()
+
+    const myConfig = new PrefixedConfig({ FOO_BAR: 'baz' })
+
+    expect(myConfig.BAR).toBe('baz')
+  })
+
+  it('and NODE_ENV still works without prefix', () => {
+    expect.hasAssertions()
+
+    const myConfig = new PrefixedConfig()
+
+    expect(myConfig.NODE_ENV).toBe('test')
   })
 })
