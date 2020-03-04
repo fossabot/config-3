@@ -35,12 +35,14 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
+  private readonly from = from(this.environment)
+
   public get(varName: string, defaultValue?: string) {
     if (defaultValue) {
-      return from(this.environment).get(varName, defaultValue)
+      return this.from.get(varName, defaultValue)
     }
 
-    return from(this.environment).get(varName)
+    return this.from.get(varName)
   }
 
   /**
