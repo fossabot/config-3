@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ScaleLeap/config/compare/v1.3.2...v1.4.0) (2020-03-04)
+
+
+### Bug Fixes
+
+* npm audit fix ([bef15c8](https://github.com/ScaleLeap/config/commit/bef15c8a4ab9f4671db16eb7c61508a19c3fb60e))
+
+
+### Features
+
+* adds prefix support ([77ac0e9](https://github.com/ScaleLeap/config/commit/77ac0e9cbb056c260f62fa506c5b3e435ca44df1))
+
 ## [1.3.2](https://github.com/ScaleLeap/config/compare/v1.3.1...v1.3.2) (2020-03-02)
 
 
