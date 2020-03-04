@@ -35,7 +35,13 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
-  protected readonly get: From['get'] = from(this.environment).get.bind(this)
+  public get(varName: string, defaultValue?: string) {
+    if (defaultValue) {
+      return from(this.environment).get(varName, defaultValue)
+    }
+
+    return from(this.environment).get(varName)
+  }
 
   /**
    * Determines running environment via `NODE_ENV` variable.
