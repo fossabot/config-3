@@ -53,6 +53,27 @@ E.g.
 DOTENV_CONFIG_PATH=.env.prod node foo.js
 ```
 
+## Using a Prefix
+
+Sometimes it is desirable to scope all of the environment variables. This can be achieved through
+a prefix.
+
+Example:
+
+```ts
+class Config extends BaseConfig {
+  protected readonly prefix = 'FOO_'
+
+  public readonly TEST = this.get('TEST').asString()
+}
+```
+
+Will then look for environment variable named `FOO_TEST` instead of just `TEST`.
+
+**Note**: The underscore `_` character is **not** included by default and must be part of your prefix.
+
+Be careful when working with built-in variables, as they would not be discovered, because of the prefix.
+
 ## Built-in Variables
 
 There are some universal variables that are included into the config.
