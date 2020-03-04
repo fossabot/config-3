@@ -37,7 +37,7 @@ export class BaseConfig {
 
   private readonly from = from(this.environment)
 
-  public get(varName: string, defaultValue?: string) {
+  protected get(varName: string, defaultValue?: string) {
     if (defaultValue) {
       return this.from.get(varName, defaultValue)
     }
