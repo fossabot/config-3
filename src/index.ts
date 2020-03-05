@@ -1,4 +1,5 @@
 import { isNode } from 'browser-or-node'
+import depd from 'depd'
 import { config } from 'dotenv'
 import { from } from 'env-var'
 
@@ -44,21 +45,28 @@ export class BaseConfig {
   protected prefix = ''
 
   protected get(varName: string, defaultValue?: string) {
-    const prefixedVarName = [this.prefix.toUpperCase(), varName].join('')
+    let value = this.from.get([this.prefix.toUpperCase(), varName].join(''))
 
     if (defaultValue) {
-      return this.from.get(prefixedVarName, defaultValue)
+      value = value.default(defaultValue)
+
+      depd('@scaleleap/config')(
+        [
+          'use of default value as a second parameter to get().',
+          'Use .default() method instead.',
+        ].join(' '),
+      )
     }
 
-    return this.from.get(prefixedVarName)
+    return value
   }
 
   /**
    * Determines running environment via `NODE_ENV` variable.
    */
-  public readonly NODE_ENV = this.get('NODE_ENV', NODE_ENV_DEVELOPMENT).asEnum([
-    ...NODE_ENVS,
-  ]) as NodeEnvs
+  public readonly NODE_ENV = this.get('NODE_ENV')
+    .default(NODE_ENV_DEVELOPMENT)
+    .asEnum([...NODE_ENVS]) as NodeEnvs
 
   public get isDevelopment(): boolean {
     return this.NODE_ENV === NODE_ENV_DEVELOPMENT
