@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ScaleLeap/config/compare/v1.4.0...v1.4.1) (2020-03-05)
+
+
+### Bug Fixes
+
+* deprecated usage of defaults env-var in 6.0.4 ([7262bca](https://github.com/ScaleLeap/config/commit/7262bca37990584e21f4858004fca5f863f0292e))
+* **deps:** update dependency env-var to v6 ([564d3cb](https://github.com/ScaleLeap/config/commit/564d3cbb9d3f28c38ff6ff16d30cd48f1e86928e))
+
 # [1.4.0](https://github.com/ScaleLeap/config/compare/v1.3.2...v1.4.0) (2020-03-04)
 
 
