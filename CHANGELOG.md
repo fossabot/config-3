@@ -1,5 +1,17 @@
 # Changelog
 
+          All notable changes to this project will be documented in this file.
+          See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.4.2](https://github.com/ScaleLeap/config/compare/v1.4.1...v1.4.2) (2020-03-10)
+
+
+### Bug Fixes
+
+* npm audit ([9cb28b9](https://github.com/ScaleLeap/config/commit/9cb28b91192c9b5b9436e0a4537b544efbbe689c))
+
+# Changelog
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
