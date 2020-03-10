@@ -2,7 +2,11 @@
   "name": "@scaleleap/config",
   "description": "Extendable configuration base class for 12 Factor application.",
   "license": "MIT",
-  "author": "Roman Filippov <roman@scaleleap.com> (https://www.scaleleap.com/)",
+  "author": {
+    "name": "Roman Filippov",
+    "email": "roman@scaleleap.com",
+    "url": "https://www.scaleleap.com/"
+  },
   "version": "1.4.1",
   "main": "dst/index.js",
   "files": [
