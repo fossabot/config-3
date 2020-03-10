@@ -2,11 +2,7 @@
   "name": "@scaleleap/config",
   "description": "Extendable configuration base class for 12 Factor application.",
   "license": "MIT",
-  "author": {
-    "name": "Roman Filippov",
-    "email": "roman@scaleleap.com",
-    "url": "https://www.scaleleap.com/"
-  },
+  "author": "Roman Filippov <roman@scaleleap.com> (https://www.scaleleap.com/)",
   "version": "1.4.1",
   "main": "dst/index.js",
   "files": [
@@ -25,7 +21,7 @@
     "env-var": "6.0.4"
   },
   "devDependencies": {
-    "@jedmao/semantic-release-npm-github-config": "1.0.9",
+    "@scaleleap/semantic-release-config": "1.0.2",
     "@scaleleap/utils": "1.4.2",
     "@types/depd": "1.1.32",
     "@types/dotenv": "6.1.1",
@@ -43,5 +39,9 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "extends": "@scaleleap/semantic-release-config",
+    "branch": "master"
   }
 }
