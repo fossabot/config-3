@@ -2,6 +2,7 @@ import { isNode } from 'browser-or-node'
 import depd from 'depd'
 import { config } from 'dotenv'
 import { from } from 'env-var'
+import { render } from 'micromustache'
 
 const NODE_ENV_DEVELOPMENT = 'development'
 const NODE_ENV_TEST = 'test'
@@ -10,7 +11,7 @@ const NODE_ENVS = [NODE_ENV_DEVELOPMENT, NODE_ENV_TEST, NODE_ENV_PRODUCTION] as 
 
 type NodeEnvs = typeof NODE_ENVS[-1]
 
-export function environmentDefaults(): NodeJS.ProcessEnv {
+export function environmentDefaults() {
   // browser environments
   if (!isNode) {
     return {}
@@ -26,6 +27,20 @@ export function environmentDefaults(): NodeJS.ProcessEnv {
   return process.env
 }
 
+function expand(variables: NodeJS.ProcessEnv) {
+  return Object.keys(variables).reduce((accumulator, key) => {
+    let value = variables[key]
+
+    if (value) {
+      value = render(value, variables, {
+        tags: ['${', '}'],
+      })
+    }
+
+    return Object.assign(accumulator, { [key]: value })
+  }, {} as typeof variables)
+}
+
 export class BaseConfig {
   public constructor(private readonly environment = environmentDefaults()) {
     // We can freeze the object only on the next tick, because classes extending
@@ -35,7 +50,9 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
-  private readonly from = from(this.environment)
+  // private readonly environment: NodeJS.ProcessEnv
+
+  private readonly from = from(expand(this.environment))
 
   /**
    * Environment variable prefix that is applied to all of the variables in this class.
