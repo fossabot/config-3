@@ -1,20 +1,7 @@
 {
   "extends": "tsconfigs/agnostic-module",
-  "compilerOptions": {
-    "pretty": true,
-    "outDir": "./dst",
-    "rootDir": "./src",
-    "baseUrl": "./src",
-    "types": [
-      "@types/jest"
-    ]
-  },
   "include": [
-    "src/*.ts",
-    "src/package.json",
-    "src/package-lock.json",
-  ],
-  "exclude": [
-    "src/*.test.ts"
+    "src/**/*.ts",
+    "test/**/*.ts"
   ]
 }
