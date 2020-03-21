@@ -4,13 +4,15 @@ import { join } from 'path'
 // eslint-disable-next-line import/extensions
 import { BaseConfig, environmentDefaults } from '.'
 
+const DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+
 class Config extends BaseConfig {
   public readonly PORT = this.get('PORT').asIntPositive()
 }
 
 describe(`${environmentDefaults.name}`, () => {
   beforeEach(() => {
-    process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+    process.env.DOTENV_CONFIG_PATH = DOTENV_CONFIG_PATH
     process.env.FOO = 'bar'
   })
 
@@ -104,7 +106,7 @@ describe(`${BaseConfig.name}`, () => {
   it('should read defaults from .env file', () => {
     expect.hasAssertions()
 
-    process.env.DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+    process.env.DOTENV_CONFIG_PATH = DOTENV_CONFIG_PATH
 
     const myConfig = new Config()
 
@@ -135,5 +137,56 @@ describe(`${BaseConfig.name}`, () => {
     const myConfig = new PrefixedConfig()
 
     expect(myConfig.NODE_ENV).toBe('test')
+  })
+})
+
+describe(`${BaseConfig.name}`, () => {
+  let environment: NodeJS.ProcessEnv
+
+  beforeEach(() => {
+    environment = { ...process.env }
+  })
+
+  afterEach(() => {
+    process.env = { ...environment }
+  })
+
+  // eslint-disable-next-line no-template-curly-in-string
+  const BAR = '${FOO} suffix'
+
+  class ExpandConfig extends BaseConfig {
+    public readonly BAR = this.get('BAR').asString()
+  }
+
+  it('should interpolate from constructor variables', () => {
+    expect.assertions(1)
+
+    const config = new ExpandConfig({
+      FOO: '123',
+      BAR,
+    })
+
+    expect(config.BAR).toBe('123 suffix')
+  })
+
+  it('should interpolate from environment', () => {
+    expect.assertions(1)
+
+    process.env.FOO = '456'
+    process.env.BAR = BAR
+
+    const config = new ExpandConfig()
+
+    expect(config.BAR).toBe('456 suffix')
+  })
+
+  it('should interpolate from .env file', () => {
+    expect.assertions(1)
+
+    process.env.DOTENV_CONFIG_PATH = DOTENV_CONFIG_PATH
+
+    const config = new ExpandConfig()
+
+    expect(config.BAR).toBe('789 suffix')
   })
 })
