@@ -53,7 +53,7 @@ E.g.
 DOTENV_CONFIG_PATH=.env.prod node foo.js
 ```
 
-## Using a Prefix
+### Using a Prefix
 
 Sometimes it is desirable to scope all of the environment variables. This can be achieved through
 a prefix.
@@ -74,13 +74,29 @@ Will then look for environment variable named `FOO_TEST` instead of just `TEST`.
 
 Be careful when working with built-in variables, as they would not be discovered, because of the prefix.
 
-## Built-in Variables
+### Variable Expansion
+
+It is possible to expand variables:
+
+```sh
+FOO=bar
+BAZ=${FOO}-baz
+```
+
+When the `BAZ` value is expanded, the result will be:
+
+```sh
+FOO=bar
+BAZ=bar-baz
+```
+
+### Built-in Variables
 
 There are some universal variables that are included into the config.
 
 For now, there is just one.
 
-### `NODE_ENV`
+#### `NODE_ENV`
 
 Valid values are:
 
