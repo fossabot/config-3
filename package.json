@@ -40,7 +40,8 @@
   },
   "keywords": [
     "config",
-    "scaleleap"
+    "scaleleap",
+    "twelve-factor"
   ],
   "publishConfig": {
     "access": "public"
