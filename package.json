@@ -24,7 +24,7 @@
     "depd": "2.0.0",
     "dotenv": "8.2.0",
     "env-var": "6.0.4",
-    "micromustache": "7.0.0-0"
+    "micromustache": "7.1.0"
   },
   "devDependencies": {
     "@scaleleap/semantic-release-config": "1.1.4",
