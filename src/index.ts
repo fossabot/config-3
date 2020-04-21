@@ -25,8 +25,8 @@ export function environmentDefaults() {
   return process.env
 }
 
-function expand(variables: NodeJS.ProcessEnv) {
-  return Object.keys(variables).reduce((accumulator, key) => {
+function expand<T extends NodeJS.ProcessEnv>(variables: T): T {
+  const expanded = Object.keys(variables).reduce((accumulator, key) => {
     let value = variables[key]
 
     if (value) {
@@ -36,7 +36,14 @@ function expand(variables: NodeJS.ProcessEnv) {
     }
 
     return Object.assign(accumulator, { [key]: value })
-  }, {} as typeof variables)
+  }, {} as T)
+
+  const vals = (vars: T) =>
+    Object.values(vars)
+      .sort()
+      .join('\n')
+
+  return vals(variables) === vals(expanded) ? expanded : expand(expanded)
 }
 
 export class BaseConfig {

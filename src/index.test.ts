@@ -151,11 +151,15 @@ describe(`${BaseConfig.name}`, () => {
     process.env = { ...environment }
   })
 
-  // eslint-disable-next-line no-template-curly-in-string
+  /* eslint-disable no-template-curly-in-string */
   const BAR = '${FOO} suffix'
+  const BAZ = '${BAR}'
+  /* eslint-enable no-template-curly-in-string */
 
   class ExpandConfig extends BaseConfig {
     public readonly BAR = this.get('BAR').asString()
+
+    public readonly BAZ = this.get('BAZ').asString()
   }
 
   it('should interpolate from constructor variables', () => {
@@ -167,6 +171,18 @@ describe(`${BaseConfig.name}`, () => {
     })
 
     expect(config.BAR).toBe('123 suffix')
+  })
+
+  it('should interpolate recursively', () => {
+    expect.assertions(1)
+
+    const config = new ExpandConfig({
+      FOO: '123',
+      BAZ,
+      BAR,
+    })
+
+    expect(config.BAZ).toBe('123 suffix')
   })
 
   it('should interpolate from environment', () => {
