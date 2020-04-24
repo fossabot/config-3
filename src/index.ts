@@ -9,8 +9,6 @@ const NODE_ENV_TEST = 'test'
 const NODE_ENV_PRODUCTION = 'production'
 const NODE_ENVS = [NODE_ENV_DEVELOPMENT, NODE_ENV_TEST, NODE_ENV_PRODUCTION] as const
 
-type NodeEnvs = typeof NODE_ENVS[-1]
-
 export function environmentDefaults() {
   // browser environments
   if (!isNode) {
@@ -83,7 +81,7 @@ export class BaseConfig {
    */
   public readonly NODE_ENV = this.get('NODE_ENV')
     .default(NODE_ENV_DEVELOPMENT)
-    .asEnum([...NODE_ENVS]) as NodeEnvs
+    .asEnum<typeof NODE_ENVS[number]>([...NODE_ENVS])
 
   public get isDevelopment(): boolean {
     return this.NODE_ENV === NODE_ENV_DEVELOPMENT
