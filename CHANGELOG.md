@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ScaleLeap/config/compare/v1.5.1...v1.6.0) (2020-04-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency env-var to v6.1.1 ([15d4f9b](https://github.com/ScaleLeap/config/commit/15d4f9bc4ef6fe94d508b31708928c68cc3bc247))
+
+
+### Features
+
+* expands variables recursively ([a23a7b5](https://github.com/ScaleLeap/config/commit/a23a7b50f42d6496b03e3af89fe0899d25a7a5ea))
+
 ## [1.5.1](https://github.com/ScaleLeap/config/compare/v1.5.0...v1.5.1) (2020-04-06)
 
 
