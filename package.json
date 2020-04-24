@@ -23,7 +23,7 @@
     "browser-or-node": "1.2.1",
     "depd": "2.0.0",
     "dotenv": "8.2.0",
-    "env-var": "6.0.4",
+    "env-var": "6.1.1",
     "micromustache": "7.1.0"
   },
   "devDependencies": {
