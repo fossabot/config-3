@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@scaleleap/semantic-release-config": "1.1.6",
-    "@scaleleap/utils": "1.4.2",
+    "@scaleleap/utils": "1.6.1",
     "@types/browser-or-node": "1.2.0",
     "@types/depd": "1.1.32",
     "@types/dotenv": "6.1.1",
