@@ -38,10 +38,7 @@ function expand<T extends NodeJS.ProcessEnv>(variables: T): T {
     return Object.assign(accumulator, { [key]: value })
   }, {} as T)
 
-  const vals = (vars: T) =>
-    Object.values(vars)
-      .sort()
-      .join('\n')
+  const vals = (vars: T) => Object.values(vars).sort().join('\n')
 
   return vals(variables) === vals(expanded) ? expanded : expand(expanded)
 }
