@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ScaleLeap/config/compare/v1.6.0...v1.6.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* npm audit ([71cd075](https://github.com/ScaleLeap/config/commit/71cd07589c5a981c85046cf78b7981285fc01bd7))
+
 # [1.6.0](https://github.com/ScaleLeap/config/compare/v1.5.1...v1.6.0) (2020-04-24)
 
 
