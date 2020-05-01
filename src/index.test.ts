@@ -64,7 +64,7 @@ describe(`${BaseConfig.name}`, () => {
   it('should be frozen on the next interval', async () => {
     expect.assertions(1)
 
-    const promise = new Promise(done => {
+    const promise = new Promise((done) => {
       const myConfig = new Config()
 
       const mutate = (): Config => Object.assign(myConfig, { PORT: 1 })
