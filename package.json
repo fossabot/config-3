@@ -31,7 +31,7 @@
     "micromustache": "7.1.0"
   },
   "devDependencies": {
-    "@scaleleap/semantic-release-config": "1.1.8",
+    "@scaleleap/semantic-release-config": "1.1.9",
     "@scaleleap/utils": "1.6.12",
     "@types/browser-or-node": "1.2.0",
     "@types/depd": "1.1.32",
