@@ -1,5 +1,4 @@
 import { isNode } from 'browser-or-node'
-import depd from 'depd'
 import { config } from 'dotenv'
 import { from } from 'env-var'
 import { render } from 'micromustache'
@@ -63,21 +62,8 @@ export class BaseConfig {
    */
   protected prefix = ''
 
-  protected get(varName: string, defaultValue?: string) {
-    let value = this.from.get([this.prefix.toUpperCase(), varName].join(''))
-
-    if (defaultValue) {
-      value = value.default(defaultValue)
-
-      depd('@scaleleap/config')(
-        [
-          'use of default value as a second parameter to get().',
-          'Use .default() method instead.',
-        ].join(' '),
-      )
-    }
-
-    return value
+  protected get(varName: string) {
+    return this.from.get([this.prefix.toUpperCase(), varName].join(''))
   }
 
   /**

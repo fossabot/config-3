@@ -25,7 +25,6 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "browser-or-node": "1.2.1",
-    "depd": "2.0.0",
     "dotenv": "8.2.0",
     "env-var": "6.1.1",
     "micromustache": "7.1.0"
@@ -34,7 +33,6 @@
     "@scaleleap/semantic-release-config": "1.1.9",
     "@scaleleap/utils": "1.6.12",
     "@types/browser-or-node": "1.2.0",
-    "@types/depd": "1.1.32",
     "@types/dotenv": "6.1.1",
     "@types/jest": "25.2.1",
     "@types/node": "12.12.31",
