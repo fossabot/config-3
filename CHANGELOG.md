@@ -3,6 +3,23 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/ScaleLeap/config/compare/v1.6.1...v2.0.0) (2020-05-19)
+
+
+### Bug Fixes
+
+* npm audit ([f8e1365](https://github.com/ScaleLeap/config/commit/f8e13651d619a0f78054d3521b92a2b281578f85))
+
+
+### Code Refactoring
+
+* removes default as a second arg feature ([3f7b156](https://github.com/ScaleLeap/config/commit/3f7b1561f067d133094417aa1e80e8578fa66ac1))
+
+
+### BREAKING CHANGES
+
+* Removes default arg
+
 ## [1.6.1](https://github.com/ScaleLeap/config/compare/v1.6.0...v1.6.1) (2020-05-01)
 
 
