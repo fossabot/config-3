@@ -51,8 +51,6 @@ export class BaseConfig {
     setImmediate(() => Object.freeze(this))
   }
 
-  // private readonly environment: NodeJS.ProcessEnv
-
   private readonly from = from(expand(this.environment))
 
   /**
