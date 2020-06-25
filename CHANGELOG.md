@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/ScaleLeap/config/compare/v2.0.1...v2.0.2) (2020-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency browser-or-node to v1.3.0 ([1cfdc2e](https://github.com/ScaleLeap/config/commit/1cfdc2e68969b7fef567cc52310cf808551900ca))
+
 ## [2.0.1](https://github.com/ScaleLeap/config/compare/v2.0.0...v2.0.1) (2020-06-12)
 
 
