@@ -39,7 +39,7 @@
     "jest": "26.2.2",
     "ts-jest": "26.1.4",
     "tsconfigs": "4.0.2",
-    "tslib": "2.0.0",
+    "tslib": "2.0.1",
     "typescript": "3.9.7"
   },
   "keywords": [
