@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/ScaleLeap/config/compare/v2.0.3...v2.0.4) (2020-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency micromustache to v8 ([2f6d3cf](https://github.com/ScaleLeap/config/commit/2f6d3cffc0d0a8f895f3bb0b729543f9b07acfb6))
+
 ## [2.0.3](https://github.com/ScaleLeap/config/compare/v2.0.2...v2.0.3) (2020-07-27)
 
 
