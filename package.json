@@ -34,7 +34,7 @@
     "@scaleleap/utils": "1.8.18",
     "@types/browser-or-node": "1.2.0",
     "@types/dotenv": "6.1.1",
-    "@types/jest": "26.0.12",
+    "@types/jest": "26.0.14",
     "@types/node": "12.12.31",
     "jest": "26.4.2",
     "ts-jest": "26.3.0",
