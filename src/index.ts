@@ -8,7 +8,7 @@ const NODE_ENV_TEST = 'test'
 const NODE_ENV_PRODUCTION = 'production'
 const NODE_ENVS = [NODE_ENV_DEVELOPMENT, NODE_ENV_TEST, NODE_ENV_PRODUCTION] as const
 
-export function environmentDefaults() {
+export function environmentDefaults(): NodeJS.ProcessEnv {
   // browser environments
   if (!isNode) {
     return {}
@@ -25,6 +25,7 @@ export function environmentDefaults() {
 }
 
 function expand<T extends NodeJS.ProcessEnv>(variables: T): T {
+  // eslint-disable-next-line unicorn/no-array-reduce
   const expanded = Object.keys(variables).reduce((accumulator, key) => {
     let value = variables[key]
 
@@ -37,7 +38,7 @@ function expand<T extends NodeJS.ProcessEnv>(variables: T): T {
     return Object.assign(accumulator, { [key]: value })
   }, {} as T)
 
-  const vals = (vars: T) => Object.values(vars).sort().join('\n')
+  const vals = (variables_: T) => Object.values(variables_).sort().join('\n')
 
   return vals(variables) === vals(expanded) ? expanded : expand(expanded)
 }
@@ -60,8 +61,9 @@ export class BaseConfig {
    */
   protected prefix = ''
 
-  protected get(varName: string) {
-    return this.from.get([this.prefix.toUpperCase(), varName].join(''))
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  protected get(variableName: string) {
+    return this.from.get([this.prefix.toUpperCase(), variableName].join(''))
   }
 
   /**
