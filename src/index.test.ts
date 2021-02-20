@@ -72,7 +72,7 @@ describe(`${BaseConfig.name}`, () => {
       setTimeout(() => {
         expect(mutate).toThrow(/Cannot assign to read only property/)
 
-        done()
+        done(undefined)
       }, 50)
     })
 
