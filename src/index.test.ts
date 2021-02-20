@@ -1,10 +1,10 @@
 // eslint-disable-next-line max-classes-per-file
-import { join } from 'path'
+import path from 'path'
 
 // eslint-disable-next-line import/extensions
 import { BaseConfig, environmentDefaults } from '.'
 
-const DOTENV_CONFIG_PATH = join(__dirname, '../tests/.env')
+const DOTENV_CONFIG_PATH = path.join(__dirname, '../tests/.env')
 
 class Config extends BaseConfig {
   public readonly PORT = this.get('PORT').asIntPositive()
@@ -24,9 +24,9 @@ describe(`${environmentDefaults.name}`, () => {
   it('should retain original process.env values', () => {
     expect.hasAssertions()
 
-    const vars = environmentDefaults()
+    const variables = environmentDefaults()
 
-    expect(vars.FOO).toBe('bar')
+    expect(variables.FOO).toBe('bar')
   })
 })
 
