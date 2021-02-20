@@ -64,7 +64,7 @@ describe(`${BaseConfig.name}`, () => {
   it('should be frozen on the next interval', async () => {
     expect.assertions(1)
 
-    const promise = new Promise((done) => {
+    const promise = new Promise<void>((done) => {
       const myConfig = new Config()
 
       const mutate = (): Config => Object.assign(myConfig, { PORT: 1 })
@@ -72,7 +72,7 @@ describe(`${BaseConfig.name}`, () => {
       setTimeout(() => {
         expect(mutate).toThrow(/Cannot assign to read only property/)
 
-        done(undefined)
+        done()
       }, 50)
     })
 
