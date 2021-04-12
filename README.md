@@ -1,4 +1,6 @@
 # @scaleleap/config
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleLeap%2Fconfig.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleLeap%2Fconfig?ref=badge_shield)
+
 
 > Extendable configuration base class for [12 Factor](https://12factor.net/config) application.
 
@@ -135,3 +137,6 @@ if (config.isDevelopment) {
 ## License
 
 MIT © Scale Leap
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleLeap%2Fconfig.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleLeap%2Fconfig?ref=badge_large)
